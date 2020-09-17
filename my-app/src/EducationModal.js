@@ -1,6 +1,7 @@
 import React from 'react';
 import './EnterName.css';
 import styled from 'styled-components'
+import Modal from 'react-modal';
 
 var Button = styled.a`
   display: inline-block;
@@ -24,28 +25,37 @@ var Button = styled.a`
 
 
 
-class EnterName extends React.Component {
+class EducationModal extends React.Component {
     constructor(props) {
         super(props)
+        this.state = {college:"",suggestedColleges:[]}
+
+        this.handleUniversityChange = this.handleUniversityChange.bind(this);
+    }
+
+    handleUniversityChange(event) {
+        var val = event.target.value;
+        this.setState({college:val})
+        $.get("http://universities.hipolabs.com/search?name="+val).done((response) => {
+            this.setState({suggestedColleges:response});
+            if (event.target.value == val) {
+                this.setState({college:response[0]["name"]})
+            }
+        })
     }
 
     render() {
         console.log(this.state)
         return (
-            <div className="EnterName">
-                    <h2 style={{textAlign:"center"}}>Hi there! Welcome to your education showcase</h2>
-                    <h2 style={{textAlign:"center"}}>Type your name and click "Enter" below to begin!</h2>
-                    <div style={{textAlign:"center"}}>
+            <div className="EducationModal">
+                <div className="box-body">
+                    <div className="col-sm-12" style={{textAlign:"center"}}>
                         <input type="text" placeholder="Your name" value={this.props.name} onChange={e => this.props.handleNameChange(e)}></input>
                     </div>
-                    <div style={{textAlign:"center"}}>
-                        <Button disabled={this.props.name==""} onClick={this.props.handleNameSubmit}>
-                            Enter
-                        </Button>
-                    </div>
+                </div>
             </div>
         );
     }
 }
 
-export default EnterName;
+export default EducationModal;

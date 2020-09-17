@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import EnterEducation from './EnterEducation';
 import './EnterName.js';
 import EnterName from './EnterName.js';
 
@@ -13,6 +14,7 @@ class App extends React.Component {
         super(props)
         this.handleNameChange = this.handleNameChange.bind(this)
         this.handleNameSubmit = this.handleNameSubmit.bind(this)
+        this.handlePrevious = this.handlePrevious.bind(this)
 
         this.state = {name:"", currentState: STATE.ENTERNAME}
     }
@@ -23,15 +25,24 @@ class App extends React.Component {
     }
 
     handleNameSubmit() {
-        console.log("bruh")
         this.setState({currentState:STATE.ENTEREDUCATION})
+    }
+
+    handlePrevious() {
+        this.setState({currentState:STATE.ENTERNAME})
     }
 
     render() {
         console.log(this.state)
-        return (
-            <EnterName name={this.state.name} handleNameChange={this.handleNameChange} handleNameSubmit={this.handleNameSubmit}/>
-        );
+        if (this.state.currentState == STATE.ENTERNAME) {
+            return (
+                <EnterName name={this.state.name} handleNameChange={this.handleNameChange} handleNameSubmit={this.handleNameSubmit}/>
+            );
+        } else {
+            return (
+                <EnterEducation name={this.state.name} handlePrevious={this.handlePrevious}/>
+            );
+        }
     }
 
 }
