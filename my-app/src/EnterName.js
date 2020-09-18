@@ -1,5 +1,4 @@
 import React from 'react';
-import './EnterName.css';
 import styled from 'styled-components'
 
 var Button = styled.button`
@@ -12,7 +11,7 @@ var Button = styled.button`
   border: 2px solid;
   text-align: center;
 
-  background: ${props => props.primary ? "palevioletred" : "white"};
+  background: ${props => props.primary && !props.disabled ? "palevioletred" : "white"};
   color: ${props => props.disabled ? "gray" : (props.primary ? "white" : "palevioletred")};
   cursor: ${props => props.disabled ? "auto" : "pointer"};
 
@@ -62,7 +61,7 @@ class EnterName extends React.Component {
                         <Input placeholder="Your name" value={this.props.name} onChange={e => this.props.handleNameChange(e)}/>
                     </div>
                     <div style={{textAlign:"center"}}>
-                        <Button disabled={this.props.name===""} onClick={this.handleNameSubmit}>
+                        <Button primary disabled={this.props.name===""} onClick={this.handleNameSubmit}>
                             Enter
                         </Button>
                     </div>

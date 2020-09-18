@@ -1,5 +1,4 @@
 import React from 'react';
-import './EnterName.css';
 import styled from 'styled-components'
 import ReactModal from 'react-modal';
 import EducationModal from './EducationModal';
@@ -40,6 +39,20 @@ const DisplayBox = styled.div.attrs(props =>
   border-radius: 3px;
 `;
 
+let MONTHS = {
+    1:"January",
+    2:"February",
+    3:"March",
+    4:"April",
+    5:"May",
+    6:"June",
+    7:"July",
+    8:"August",
+    9:"September",
+    10:"October",
+    11:"November",
+    12:"December",
+}
 
 class EnterEducation extends React.Component {
     constructor(props) {
@@ -109,7 +122,7 @@ class EnterEducation extends React.Component {
                     <h2 style={{textAlign:"center"}}>Welcome to {this.props.name}'s education page</h2>
                         {this.renderEducations()}
                     <div style={{textAlign:"center"}}>
-                        <Button onClick={this.onOpenModal}>
+                        <Button primary onClick={this.onOpenModal}>
                             Add Education
                         </Button>
                     </div>
@@ -135,37 +148,24 @@ class EnterEducation extends React.Component {
 
     renderTitles() {
         return this.state.education.map(object => {
-            return <div key={object.college}><h3>{object.college}</h3>
+            return <div key={object.college}><h4>{object.college}</h4>
             <hr/></div>
         })
+    }
+
+    formatDate(date) {
+        return MONTHS[this.getMonth(date)]+ " 20"+this.getYear(date)
     }
 
     renderEducations() {
         return this.state.education.map(object => {
             return (
                 <div className="EducationInfo" key={object.college}>
-    
-                        <div className="row">
-                            <label htmlFor="college" className="col-sm-2 text-right" style={{textAlign:"center"}}>College: </label>
-                            <DisplayBox size="6">{object.college}</DisplayBox>
-    
-                            <label htmlFor="degree" className="col-sm-2 text-right" style={{textAlign:"center"}}>Degree: </label>
-                            <DisplayBox size="2">{object.degree}</DisplayBox>
-                        </div>
-                        <div className="row">
-                            <label htmlFor="field" className="col-sm-2 text-right" style={{textAlign:"center"}}>Field </label>
-                            <DisplayBox size="2">{object.field}</DisplayBox>
-    
-                            <label htmlFor="start" className="col-sm-2 text-right" style={{textAlign:"center"}}>Start: </label>
-                            <DisplayBox size="2">{object.start}</DisplayBox>
-    
-                            <label htmlFor="end" className="col-sm-2 text-right" style={{textAlign:"center"}}>End: </label>
-                            <DisplayBox size="2">{object.end}</DisplayBox>
-                        </div>
-                        {object.description ? <div className="row">
-                            <label htmlFor="description" className="col-sm-12 text-left" style={{textAlign:"center"}}>Description: </label>
-                            <DisplayBox size="12">{object.description}</DisplayBox>
-                        </div> : ""}
+                        <DisplayBox size="12">
+                            <h3>{object.degree} {object.field} @ {object.college}</h3>
+                            <h2>{this.formatDate(object.start)} - {this.formatDate(object.end)}</h2>
+                            <div>{object.description}</div>
+                        </DisplayBox>
 
                         <Button onClick={() => this.editEntry(object.college)}>Edit Data</Button>
 
