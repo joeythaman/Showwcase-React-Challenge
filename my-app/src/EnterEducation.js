@@ -159,7 +159,7 @@ class EnterEducation extends React.Component {
         if (isNaN(this.getMonth(date)) || isNaN(this.getYear(date))) {
             return date
         } else {
-            return MONTHS[this.getMonth(date)]+ " 20"+this.getYear(date)
+            return MONTHS[this.getMonth(date)]+ " "+this.getYear(date)
         }
     }
 
@@ -170,7 +170,7 @@ class EnterEducation extends React.Component {
                         <DisplayBox size="12">
                             <h3>{object.degree} {object.field} @ {object.college}</h3>
                             <h2>{this.formatDate(object.start)} - {this.formatDate(object.end)}</h2>
-                            <div>{object.description}</div>
+                            <div style={{whiteSpace: "pre-wrap"}}>{object.description}</div>
                         </DisplayBox>
 
                         <Button onClick={() => this.editEntry(object.college)}>Edit Data</Button>

@@ -58,7 +58,7 @@ class EnterName extends React.Component {
                     <h2 style={{textAlign:"center"}}>Hi there! Welcome to your education showcase</h2>
                     <h2 style={{textAlign:"center"}}>Type your name and click "Enter" below to begin!</h2>
                     <div style={{textAlign:"center"}}>
-                        <Input placeholder="Your name" value={this.props.name} onChange={e => this.props.handleNameChange(e)}/>
+                        <Input placeholder="Your Name" value={this.props.name} onChange={e => this.props.handleNameChange(e)}/>
                     </div>
                     <div style={{textAlign:"center"}}>
                         <Button primary disabled={this.props.name===""} onClick={this.handleNameSubmit}>

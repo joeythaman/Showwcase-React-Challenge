@@ -140,7 +140,7 @@ class EducationModal extends React.Component {
 
                     <div className="row" style={{margin:"30px"}}>
                         <label htmlFor="college" className="col-sm-2 text-right" style={{textAlign:"center"}}>College: </label>
-                        <Input size="6" name="college" placeholder="Your name" value={this.state.college} onChange={e => this.handleUniversityChange(e)}/>
+                        <Input size="6" name="college" placeholder="College Name" value={this.state.college} onChange={e => this.handleUniversityChange(e)}/>
 
                         <label htmlFor="degree" className="col-sm-2 text-right" style={{textAlign:"center"}}>Degree: </label>
                         <Select onChange={e => this.handleSelectDegree(e)} className="col-sm-2">
@@ -158,10 +158,10 @@ class EducationModal extends React.Component {
                         <Input size="2" name="field" placeholder="Field of Study" value={this.state.field} onChange={e => this.handleFieldChange(e)}/>
 
                         <label htmlFor="start" className="col-sm-2 text-right" style={{textAlign:"center"}}>Start: </label>
-                        <Input size="2" name="start" placeholder="MM/YY" value={this.state.start} onChange={e => this.handleStartChange(e)}/>
+                        <Input size="2" name="start" placeholder="MM/YYYY" value={this.state.start} onChange={e => this.handleStartChange(e)}/>
 
                         <label htmlFor="end" className="col-sm-2 text-right" style={{textAlign:"center"}}>End <i>(projected or real)</i>: </label>
-                        <Input size="2" name="end" placeholder="MM/YY" value={this.state.end} onChange={e => this.handleEndChange(e)}/>
+                        <Input size="2" name="end" placeholder="MM/YYYY" value={this.state.end} onChange={e => this.handleEndChange(e)}/>
                     </div>
                     <div className="row">
                         <label htmlFor="description" className="col-sm-12 text-left" style={{textAlign:"center"}}>Description: </label>
