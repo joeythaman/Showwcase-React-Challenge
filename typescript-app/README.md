@@ -1,5 +1,11 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+As you might have noticed already, I didn't build the typescript app the right way the first time so I had to rebuild it with npx and copy the code over.  So please use this app if you want to see a typescript app.
+
+## Technology Used
+
+I used styled-components for styling buttons and input, react-modal for the modal popup, jquery for the api get request, bootstrap for UI design
+
 ## Available Scripts
 
 In the project directory, you can run:
