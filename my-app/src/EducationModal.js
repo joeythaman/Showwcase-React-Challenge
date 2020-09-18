@@ -29,6 +29,15 @@ var Button = styled.button`
   }
 `
 
+var Select = styled.select.attrs(props =>
+    ({className: (props.size ? "col-sm-"+props.size : ""),}))`
+  padding: 0.5em;
+  color: ${props => props.inputColor || "palevioletred"};
+  background: papayawhip;
+  border: none;
+  border-radius: 3px;
+`;
+
 const Input = styled.input.attrs(props =>
     ({className: (props.size ? "col-sm-"+props.size : ""),
     type: "text",}))`
@@ -134,7 +143,7 @@ class EducationModal extends React.Component {
                         <Input size="6" name="college" placeholder="Your name" value={this.state.college} onChange={e => this.handleUniversityChange(e)}/>
 
                         <label htmlFor="degree" className="col-sm-2 text-right" style={{textAlign:"center"}}>Degree: </label>
-                        <select onChange={e => this.handleSelectDegree(e)} className="col-sm-2">
+                        <Select onChange={e => this.handleSelectDegree(e)} className="col-sm-2">
                             <option value="None">None</option>
                             <option value="High School">High School</option>
                             <option value="Associate's">Associate's</option>
@@ -142,7 +151,7 @@ class EducationModal extends React.Component {
                             <option value="Master's">Master's</option>
                             <option value="Doctor's">Doctor's</option>
                             <option value="Postgraduate">Postgraduate</option>
-                        </select>
+                        </Select>
                     </div>
                     <div className="row">
                         <label htmlFor="field" className="col-sm-2 text-right" style={{textAlign:"center"}}>Field of Study: </label>
