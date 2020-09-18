@@ -136,6 +136,7 @@ class EducationModal extends React.Component {
             <div className="EducationModal">
                 <form className="box-body"
                 onSubmit={this.handleSubmit}
+                onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
                 noValidate>
 
                     <div className="row" style={{margin:"30px"}}>
