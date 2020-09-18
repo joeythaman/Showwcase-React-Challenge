@@ -168,7 +168,6 @@ class EnterEducation extends React.Component {
                         </DisplayBox>
 
                         <Button onClick={() => this.editEntry(object.college)}>Edit Data</Button>
-
                         <hr/>
                 </div>)
         })
