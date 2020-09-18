@@ -23,11 +23,11 @@ You should not just implement the most basic solution. This is a chance to show 
 - This is a free API that has data on Universities worldwide, feel free to use it or if you find something better make sure to use it. 
 [https://github.com/Hipo/university-domains-list-api](https://github.com/Hipo/university-domains-list-api)
 - Here are a few technologies we use at Showwcase and we would prefer if you used them as well should you see the need for them:
-    - Styled Components: [https://styled-components.com/](https://styled-components.com/)
+    - Styled Components: [https://styled-components.com/](https://styled-components.com/) - This was used
     - Styled System is a nice helper to Styled Components: [https://styled-system.com/](https://styled-system.com/)
     - Hooks: [https://reactjs.org/docs/hooks-intro.html](https://reactjs.org/docs/hooks-intro.html)
     - Redux: [https://redux.js.org/](https://redux.js.org/)
-    - React Modal: [https://github.com/reactjs/react-modal](https://github.com/reactjs/react-modal)
+    - React Modal: [https://github.com/reactjs/react-modal](https://github.com/reactjs/react-modal) - This was also used
 
 ## What we will be looking for
 
@@ -62,6 +62,9 @@ Implement the screens based off the wireframes and api above using advanced tech
 
 ![Image of Introduction Screen](https://github.com/Showwcase/Showwcase-Intern-React-Challenge/blob/master/MacBook_-_2.jpg)
 
+Design decisions:
+- The user must enter their name before clicking Enter
+
 ## Main screen
 
 - Dynamic text
@@ -71,6 +74,10 @@ Implement the screens based off the wireframes and api above using advanced tech
 
 ![Image of Main Screen](https://github.com/Showwcase/Showwcase-Intern-React-Challenge/blob/master/MacBook_-_3.jpg)
 
+Design decisions:
+- previous button so the user can change their name
+- I took most recent to mean education most recently finished so I sorted the entries by end date
+- I provided a button to edit any entry
 
 
 ## Add education modal
@@ -79,5 +86,10 @@ Implement the screens based off the wireframes and api above using advanced tech
 - Modal allows the user to add the relevant information and save it.
 
 ![Image of Modal Screen](https://github.com/Showwcase/Showwcase-Intern-React-Challenge/blob/master/MacBook_-_4.jpg)
+
+Design decisions:
+- Autocomplete to institution that starts with the letters entered
+- Select autocompleted text so user can keep typing and replace it
+- Require users to fill out all parts of the form except description
 
 © 2020 Showcase Creators Inc. All rights reserved. Certain information contained herein is derived from information which is protected by copyrights held by Showcase Creators Inc. This code challenge, including any parts of it, cannot be duplicated, distributed, copied, modified, used to make a derivative work or used in any way without the prior written consent of Showcase Creators Inc.
