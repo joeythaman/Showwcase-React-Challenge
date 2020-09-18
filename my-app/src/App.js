@@ -20,7 +20,6 @@ class App extends React.Component {
     }
 
     handleNameChange(event) {
-        console.log(event.target)
         this.setState({name:event.target.value})
     }
 
@@ -33,8 +32,7 @@ class App extends React.Component {
     }
 
     render() {
-        console.log(this.state)
-        if (this.state.currentState == STATE.ENTERNAME) {
+        if (this.state.currentState === STATE.ENTERNAME) {
             return (
                 <EnterName name={this.state.name} handleNameChange={this.handleNameChange} handleNameSubmit={this.handleNameSubmit}/>
             );

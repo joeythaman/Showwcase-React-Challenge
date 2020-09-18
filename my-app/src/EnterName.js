@@ -7,20 +7,25 @@ var Button = styled.button`
   border-radius: 9px;
   padding: 0.5rem 0;
   margin: 0.5rem 1rem;
-  width: 7rem;
+  width: 7em;
   background: transparent;
   border: 2px solid;
-  user-select: none;
+  text-align: center;
 
-  background: white;
-  color: ${props => props.disabled ? "gray" : "palevioletred"};
+  background: ${props => props.primary ? "palevioletred" : "white"};
+  color: ${props => props.disabled ? "gray" : (props.primary ? "white" : "palevioletred")};
   cursor: ${props => props.disabled ? "auto" : "pointer"};
 
-  &:hover {
-    ${props => props.disabled ? 
-    `color: gray;
-    text-decoration: none;` :
-    `color: red;`
+  ${props => props.disabled ? "" :
+    props.primary ?
+    `&:hover {
+        background: red;
+        color: white;
+    }`
+    :
+    `&:hover {
+        color: red;
+    }`
   }
 `
 
@@ -28,6 +33,8 @@ const Input = styled.input.attrs(props =>
     ({className: (props.size ? "col-sm-"+props.size : ""),
     type: "text",}))`
   padding: 0.5em;
+  font-size: 20px;
+  width: 50%;
   color: ${props => props.inputColor || "palevioletred"};
   background: papayawhip;
   border: none;
@@ -41,14 +48,12 @@ class EnterName extends React.Component {
     }
 
     handleNameSubmit() {
-        console.log("asdf")
         if (this.props.name!=="") {
             this.props.handleNameSubmit()
         }
     }
 
     render() {
-        console.log(this.state)
         return (
             <div className="EnterName">
                     <h2 style={{textAlign:"center"}}>Hi there! Welcome to your education showcase</h2>
