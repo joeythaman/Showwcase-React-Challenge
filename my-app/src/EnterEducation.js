@@ -116,6 +116,8 @@ class EnterEducation extends React.Component {
             <div className="EnterEducation container">
                 <div className="row">
                     <div className="col-sm-3">
+                        <h3>Summary</h3>
+                        <hr/>
                         {this.renderTitles()}
                     </div>
                     <div className="col-sm-9">
@@ -154,7 +156,11 @@ class EnterEducation extends React.Component {
     }
 
     formatDate(date) {
-        return MONTHS[this.getMonth(date)]+ " 20"+this.getYear(date)
+        if (isNaN(this.getMonth(date)) || isNaN(this.getYear(date))) {
+            return date
+        } else {
+            return MONTHS[this.getMonth(date)]+ " 20"+this.getYear(date)
+        }
     }
 
     renderEducations() {
